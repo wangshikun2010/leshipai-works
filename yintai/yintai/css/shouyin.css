@@ -1,0 +1,333 @@
+@charset "UTF-8";
+#banner {
+    height: 80px;
+    background: url(../images/table_top_log.png) repeat-x center top;
+}
+
+#refersh {
+    width: 100px;
+    height: 70px;
+    border: 1px solid #CCCCCC;
+    background: blue;
+    font-size: 30px;
+    line-height: 70px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 用户列表 */
+#user-list {
+    height: 100%;
+    margin: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#table ul li {
+    float: left;
+    margin: 3px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #34CB00;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#table ul li:hover {
+   opacity: 1; 
+}
+
+/* 交班对账 */
+#bill-message {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 570px;
+    margin: -285px 0 0 -400px;
+}
+
+#bill-content {
+    height: 460px;
+    padding: 0;
+}
+
+.container .person-message {
+    background: #EDEDED;
+}
+
+.container .person-message li {
+    display: inline-block;
+    width: 47%;
+    text-align: left;
+    font-size: 18px;
+    color: #740611;
+    font-weight: bold;
+}
+
+.container .operate-message li {
+    height: 22px;
+    line-height: 22px;
+}
+
+.operate-message {
+    padding: 10px;
+    font-size: 14px;
+    color: #DD8A08;
+}
+
+.operate-message .big-size {
+    font-size: 16px;
+    color: #740611;
+    font-weight: 500;
+}
+
+.operate-message li p {
+    float: left;
+    width: 400px;
+    text-align: right;
+}
+
+.operate-message li div {
+    text-align: left;
+}
+
+#cancel-bill, #cancel-clear {
+    margin: 10px 0 10px 200px;
+}
+
+.print-bill {
+    margin: 10px 0 10px 200px;
+    background: url(../images/rijie_zhongda.png) no-repeat;
+}
+
+.print-bill:hover, .print-bill:active {
+    background: url(../images/rijie_zhongda2.png) no-repeat;
+}
+
+/* 日结清机 */
+#clear-message {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 662px;
+    margin: -331px 0 0 -400px;
+}
+
+#clear-content {
+    padding: 0;
+}
+
+/* 账单详情 */
+#bill-detailed {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    display: none;
+    width: 800px;
+    margin: 0px 0 0 -400px;
+}
+
+#detailed-content {
+    padding: 0px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/* 主单，补单 */
+#bill-detailed table tr {
+    height: 30px;
+}
+
+#bill-detailed table th, #bill-detailed table td {
+    width: 100px;
+    background: #EDEDED;
+    color: #8D131C;
+    font-size: 16px;
+}
+
+#bill-detailed table td {
+    background: white;
+}
+
+#bill-detailed th.dishes {
+    width: 400px;
+    text-align: center;
+}
+
+#bill-detailed td.dishes {
+    width: 400px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* 主单 */
+#mianunit {
+    padding-bottom: 20px;
+}
+
+#mianunit-title, #replenish-title {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: #FBE101;
+    background: #810706;
+}
+
+#mianunit-title p, #replenish-title p {
+    float: left;
+}
+
+#mianunit-title .number, #replenish-title .number {
+    width: 300px;
+}
+
+#mianunit-title .order-amount, #replenish-title .order-amount {
+    width: 170px;
+}
+
+#mianunit-title .waiter, #replenish-title .waiter {
+    width: 150px;
+}
+
+#mianunit-title .status, #replenish-title .status {
+    width: 150px;
+}
+
+#replenish-title {
+    background: #999999;
+    color: white;
+}
+
+#replenish-data {
+    padding-bottom: 30px;
+}
+
+#replenish-data tr td {
+    color: #999999;
+}
+
+/* 结账信息 */
+#detailed-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 800px;
+    height: 170px;
+    padding: 10px 0;
+    border-top: 1px solid #CCCCCC;
+    background: #810706;
+}
+
+.table, .checkout, .checkout-money {
+    float: left;
+    color: #FBE101;
+    font-size: 17px;
+    text-align: left;
+}
+
+.table {
+    width: 250px;
+    margin-left: 10px;
+}
+
+.checkout {
+    width: 190px;
+}
+
+.checkout-money {
+    width: 140px;
+}
+
+.table .table-number {
+    height: 20px;
+    padding: 7px;
+    text-align: left;
+    font-size: 18px;
+    color: #810706;
+    background: #E29C00;
+}
+
+.table p {
+    height: 26px;
+    line-height: 26px;
+    border-left: 2px solid #E29C00;
+    border-right: 2px solid #E29C00;
+    padding: 2px 0 2px 5px;
+    font-weight: 600;
+    background: white;
+    color: #810706;
+}
+
+.table #border-bottom {
+    border-bottom: 2px solid #E29C00;
+}
+
+.table select {
+    width: 100px;
+    color: #8D131C;
+    font-size: 17px;
+}
+
+.checkout label {
+    display: block;
+    height: 27px;
+    line-height: 27px;
+    margin: 4px 0 4px 10px;
+    font-weight: 600;
+}
+
+.checkout label input {
+    width: 70px;
+    height: 20px;
+    text-align: right;
+    color: #8D131C;
+    margin-right: 3px;
+    border: 1px solid #BCBCBC;
+    font-weight: bold;
+}
+
+#zhaolin {
+    display: inline-block;
+    width: 73px;
+    margin-right: 3px;
+    border-bottom: 2px solid #E29C00;
+    text-align: right;
+}
+
+#cancel-checkout {
+    width: 141px;
+    height: 56px;
+    margin: 4px 0;
+    background: url(../images/quxiao.png) no-repeat;
+    cursor: pointer;
+}
+
+#cancel-checkout:hover, #cancel-checkout:active {
+    background: url(../images/quxiao2.png) no-repeat;
+}
+
+#checkout {
+    width: 141px;
+    height: 96px;
+    margin: 4px 0;
+    background: url(../images/jiezhang.png) no-repeat;
+    cursor: pointer;
+}
+
+#checkout:hover, #checkout:active {
+    background: url(../images/jiezhang2.png) no-repeat;
+}
+
+
+
+
