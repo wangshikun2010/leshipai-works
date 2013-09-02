@@ -6,6 +6,7 @@ var yintai_url = 'http://192.168.251.80/yintai/', //银台系统地址
 
 $(function() {
     var layerBox;
+    var layerStrip;
     var ndWaiterName = $('#waiter-name'),
         ndOldPassword = $('#old-password'),
         ndNewPassword = $('#new-password'),
@@ -40,9 +41,14 @@ $(function() {
         });
     }
 
-    // 隐藏加载信息
-    function hideLoadingMessage(dom, description, fn) {
-        var i = $.layer({
+    // 显示提示消息
+    function displayMsg(dom, description, time, fn) {
+        if (layerStrip){
+            layer.close(layerStrip);
+            layerStrip = false;
+        }
+
+        layerStrip = $.layer({
             type: 1,
             shade: [0 , '#000' , true],
             title: ['',false],
@@ -50,14 +56,18 @@ $(function() {
             area: ['0px','0px'],
         });
 
-        $(dom).html(description).show()
-                .fadeOut(500, function() {
-                    $(this).html('');
-                    layer.close(i);
-                    if (fn) {
-                        fn();
-                    }
-                });
+        $(dom).html(description).show();
+        if (time !== false) {
+            $(dom).fadeOut(time, function() {
+                $(this).html('');
+                layer.close(layerStrip);
+                layerStrip = false;
+
+                if (fn) {
+                    fn();
+                }
+            });
+        }
     }
 
     // 修改密码
@@ -72,10 +82,10 @@ $(function() {
 
             // 验证服务员，密码，新密码
             if ((ndNewPassword.val() !== ndAgainPassword.val()) || (ndNewPassword.val() == '') || (ndAgainPassword.val() == '')) {
-                hideLoadingMessage(ndModifyPwdMsg, '两次输入的密码不一样');
+                displayMsg(ndModifyPwdMsg, '两次输入的密码不一样', 1000);
                 return;
             } else if ((ndWaiterName.val() == '') || (ndOldPassword.val() == '')) {
-                hideLoadingMessage(ndModifyPwdMsg, '用户名或密码不能为空');
+                displayMsg(ndModifyPwdMsg, '用户名或密码不能为空', 1000);
                 return;
             }
 
@@ -90,17 +100,18 @@ $(function() {
                     'waiter_pwd_new': $('#new-password').val()
                 },
                 dataType: "json",
-                beforeSend: hideLoadingMessage(ndModifyPwdMsg, '页面加载中'),
+                beforeSend: displayMsg(ndModifyPwdMsg, '页面加载中', false),
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    hideLoadingMessage(ndModifyPwdMsg, '请求服务器失败，请重试');
+                    displayMsg(ndModifyPwdMsg, '请求服务器失败，请重试', 1000);
                 },
                 success: function(respnoseText) {
-                    if (respnoseText.status == 200) {
-                        hideLoadingMessage(ndModifyPwdMsg, respnoseText.description);
+                    console.log(respnoseText);
+                    if (respnoseText.status != 200) {
+                        displayMsg(ndModifyPwdMsg, respnoseText.description, 1000);
                         return;
                     } else {
-                        hideLoadingMessage(ndModifyPwdMsg, '操作成功', function() {
-                            layer.close(layerBox);
+                        displayMsg(ndModifyPwdMsg, respnoseText.description, 1000, function() {
+                            layer.close(layerBox);                            
                         });
                     }
                 }
@@ -122,16 +133,16 @@ $(function() {
                 ifModified: true,
     　　        cache: false,
                 dataType: "json",
-                beforeSend: hideLoadingMessage(ndPromptMsg, '正在请求服务器'),
+                beforeSend: displayMsg(ndPromptMsg, '正在请求服务器', false),
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    hideLoadingMessage(ndPromptMsg, '请求服务器失败，请重试');
+                    displayMsg(ndPromptMsg, '请求服务器失败，请重试', 1000);
                 },
                 success: function(respnoseText) {
-                    if (respnoseText.status == 200) {
-                        hideLoadingMessage(ndPromptMsg, respnoseText.description);
+                    if (respnoseText.status != 200) {
+                        displayMsg(ndPromptMsg, respnoseText.description, 1000);
                         return;
                     } else {
-                        hideLoadingMessage(ndPromptMsg, '操作成功', function() {
+                        displayMsg(ndPromptMsg, respnoseText.description, 200, function() {
                             layer.close(layerBox);
                         });
                     }
@@ -155,16 +166,16 @@ $(function() {
                 ifModified: true,
     　　        cache: false,
                 dataType: "json",
-                beforeSend: hideLoadingMessage(ndPromptMsg, '正在请求服务器'),
+                beforeSend: displayMsg(ndPromptMsg, '正在请求服务器', false),
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    hideLoadingMessage(ndPromptMsg, '请求服务器失败，请重试');
+                    displayMsg(ndPromptMsg, '请求服务器失败，请重试', 1000);
                 },
                 success: function(respnoseText) {
-                    if (respnoseText.status == 200) {
-                        hideLoadingMessage(ndPromptMsg, respnoseText.description);
+                    if (respnoseText.status != 200) {
+                        displayMsg(ndPromptMsg, respnoseText.description, 1000);
                         return;
                     } else {
-                        hideLoadingMessage(ndPromptMsg, '操作成功', function() {
+                        displayMsg(ndPromptMsg, respnoseText.description, 200, function() {
                             layer.close(layerBox);
                         });
                     }

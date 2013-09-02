@@ -57,13 +57,13 @@
     <div id="logoin-message" class="message">
         <h1 id="logoin-title" class="title">日结清机</h1>
         <div id="logoin-content" class="container">
-            <label for="username">
+            <label for="logo-name">
                 服务员：
-                <input type="text" id="username" name="username"/>
+                <input type="text" id="logo-name" name="username"/>
             </label>
-            <label for="password">
+            <label for="logo-password">
                 密　码：
-                <input type="password" id="password" name="password"/>
+                <input type="password" id="logo-password" name="password"/>
             </label>
         </div>
         <div id="logoin-footer" class="close-message clearfix">
@@ -78,66 +78,65 @@
         <h1 id="bill-title" class="title">交班对账</h1>
         <div id="bill-content" class="container">
            <ul class="person-message">
-               <li>员工编号：<span id="person-id"></span></li>
-               <li>员工姓名：<span id="person-name"></span></li>
-               <li>开始时间：<span id="start-time"></span></li>
-               <li>结束时间：<span id="end-time"></span></li>
+               <li>员工编号：<span id="jb-waiter-id"></span></li>
+               <li>员工姓名：<span id="jb-waiter-name"></span></li>
+               <li>开始时间：<span id="jb-start-time"></span></li>
+               <li>结束时间：<span id="jb-end-time"></span></li>
            </ul>
            <ul class="operate-message">
                 <li class="big-size clearfix">
-                    <p>总单数：</p><div id="total-singular">15张</div>
+                    <p>总单数：</p><div id="jb-total-singular">15张</div>
                 </li>
                 <li class="clearfix">
-                    <p>主单数：</p><div id="mian-singular">10张</div>
+                    <p>主单数：</p><div id="jb-mian-singular">10张</div>
                 </li>
                 <li class="clearfix">
-                    <p>追单数：</p><div id="add-singular">5张</div>
+                    <p>追单数：</p><div id="jb-add-singular">5张</div>
                 </li>
                 <li class="big-size clearfix">
-                    <p>总人数：</p><div id="person-title"></div>
+                    <p>总人数：</p><div id="jb-total-person"></div>
                 </li>
                 <li class="big-size clearfix">
-                    <p>总金额：</p><div id="total-amount"></div>
+                    <p>总金额：</p><div id="jb-total-amount"></div>
                 </li>
                 <li class="clearfix">
-                    <p>人均消费：</p><div id="person-consume"></div>
+                    <p>人均消费：</p><div id="jb-person-money"></div>
                 </li>
                 <li class="big-size clearfix">
-                    <p>折扣金额：</p><div id="discount-amount"></div>
+                    <p>折扣金额：</p><div id="jb-discount-amount"></div>
                 </li>
                 <li class="big-size clearfix">
-                    <p>抹零：</p><div id=""></div>
+                    <p>抹零：</p><div id="jb-moling"></div>
                 </li>
                 <li class="big-size clearfix">
-                    <p>实际收入：</p><div id="receive-amount"></div>
-                </li>
-
-                <li class="clearfix">
-                    <p>现金：</p><div id=""></div>
+                    <p>实收金额：</p><div id="jb-receive-amount"></div>
                 </li>
                 <li class="clearfix">
-                    <p>银行卡：</p><div id=""></div>
+                    <p>现金：</p><div id="jb-cash"></div>
                 </li>
                 <li class="clearfix">
-                    <p>团购券：</p><div id=""></div>
+                    <p>银行卡：</p><div id="jb-cerd"></div>
                 </li>
                 <li class="clearfix">
-                    <p>其他卡：</p><div id=""></div>
+                    <p>团购券：</p><div id="jb-tuan"></div>
                 </li>
                 <li class="clearfix">
-                    <p>贵宾券：</p><div id=""></div>
+                    <p>其他卡：</p><div id="jb-other"></div>
                 </li>
                 <li class="clearfix">
-                    <p>抵用券：</p><div id=""></div>
+                    <p>贵宾券：</p><div id="jb-vip-ticket"></div>
                 </li>
                 <li class="clearfix">
-                    <p>免单：</p><div id=""></div>
+                    <p>抵用券：</p><div id="jb-arrived"></div>
                 </li>
                 <li class="clearfix">
-                    <p>签单：</p><div id=""></div>
+                    <p>免单：</p><div id="jb-free-single"></div>
+                </li>
+                <li class="clearfix">
+                    <p>签单：</p><div id="jb-single"></div>
                 </li>
                 <li class="big-size clearfix">
-                    <p>优惠金额：</p><div id=""></div>
+                    <p>优惠金额：</p><div id="jb-youhui-money"></div>
                 </li>
            </ul>
         </div>
@@ -169,7 +168,7 @@
                     <p>追单数：</p><div id="qj-add-singular">5张</div>
                 </li>
                 <li class="big-size clearfix">
-                    <p>每桌平均人数：</p><div id="qj-people-count"></div>
+                    <p>每桌平均人数：</p><div id="qj-person-count"></div>
                 </li>
                 <li class="big-size clearfix">
                     <p>每桌平均消费菜品数量：</p><div id="qj-dish-count"></div>
@@ -184,7 +183,7 @@
                     <p>总金额：</p><div id="qj-total-amount"></div>
                 </li>
                 <li class="clearfix">
-                    <p>人均消费：</p><div id="qj-people-money"></div>
+                    <p>人均消费：</p><div id="qj-person-money"></div>
                 </li>
                 <li class="big-size clearfix">
                     <p>折扣金额：</p><div id="qj-discount-amount"></div>
@@ -260,9 +259,9 @@
             </div>
             <div id="replenish">
                 <h1 id="replenish-title">
-                    <p class="number">补单：<span id="replenish-number">123</span></p>
-                    <p class="order-amount">订单金额：<span id="replenish-order-amount">100</span></p>
-                    <p class="waiter">服务员：<span id="replenish-waiter">张三</span></p>
+                    <p class="number">补单：<span id="replenish-number"></span></p>
+                    <p class="order-amount">订单金额：<span id="replenish-order-amount"></span></p>
+                    <p class="waiter">服务员：<span id="replenish-waiter"></span></p>
                     <p class="status">状态：<span id="replenish-status">暂存未送</span></p>
                 </h1>
                 <table id="replenish-head" border="0" cellspacing="0" cellpadding="0">

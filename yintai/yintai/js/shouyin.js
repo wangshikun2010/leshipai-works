@@ -1,7 +1,9 @@
 $(function() {
+    // 弹出条
     var ndPromptMsg = $('#prompt-message');
+    var ndBillProMsg = $('#bill-prompt-message');
 
-    // resize改变li大小
+    // 窗口大小变化改变li大小
     $(window).resize(function() {
         setLiSize();
     });
@@ -13,7 +15,7 @@ $(function() {
         ifModified: true,
 　　    cache: false,
         dataType: "json",
-        // beforeSend: displayMsg(ndPromptMsg, '页面加载中', 100),
+        beforeSend: displayMsg(ndPromptMsg, '页面加载中', false),
         success: function(respnoseText) {
             // console.log(respnoseText);
 
@@ -24,7 +26,7 @@ $(function() {
             }
 
             // 页面加载成功后显示所有桌台
-            displayMsg(ndPromptMsg, '页面加载成功', 200, function() {
+            displayMsg(ndPromptMsg, respnoseText.description, 200, function() {
 
                 for (var i=0; i<respnoseText.data.length; i++) {
                     var li = $('<li id=' + respnoseText.data[i].id + ' data-tab-id=' + respnoseText.data[i].tab_id + '>' + respnoseText.data[i].tab_name + '</li>');
@@ -62,7 +64,7 @@ $(function() {
     // 动态显示点击桌台详细信息
     $('#user-list').delegate('li', 'click', function() {
 
-        // 删除已有数据
+        // 删除已有菜单数据
         $('#mianunit-data tr').remove();
         $('#replenish-data tr').remove();
 
@@ -74,12 +76,11 @@ $(function() {
             },
             ifModified: true,
     　　    cache: false,
-            dataType: "json",
-            timeout: 3000,
-            // beforeSend: displayMsg(ndPromptMsg, '页面加载中', 100),
+            dataType: "text",
+            // timeout: 3000,
+            beforeSend: displayMsg(ndPromptMsg, '页面加载中', false),
             success: function(respnoseText) {
-
-                // console.log(respnoseText);
+                console.log(respnoseText);
                 // return;
 
                 // 页面加载失败
@@ -92,7 +93,6 @@ $(function() {
                 displayMsg(ndPromptMsg, respnoseText.description, 200, function() {
 
                     var data = respnoseText.data;
-                    // console.log(data);
 
                     // 填写一个菜信息：名称，单价，实收，折扣，份数，金额
                     for (var i in data.order) {
@@ -103,7 +103,7 @@ $(function() {
 
                             // 设置主单title信息
                             $('#mianunit-number').text(data.order[i].order_main)
-                                                .attr('id', data.order[i].id);
+                                                .attr('data-id', data.order[i].id);
                             $('#mianunit-order-amount').text(data.order[i].sum_price);
                             $('#mianunit-waiter').attr('data-id', data.order[i].waiter_id).text(data.order[i].waiter_name);
 
@@ -112,9 +112,10 @@ $(function() {
 
                             // 设置补单title信息
                             $('#replenish-number').text(data.order[i].order_main)
-                                                .attr('id', data.order[i].id);
+                                                .attr('data-id', data.order[i].id);
                             $('#replenish-order-amount').text(data.order[i].sum_price);
-                            $('#replenish-waiter').text(data.order[i].waiter_name).prop('id', data.order[i].waiter_id);
+                            $('#replenish-waiter').text(data.order[i].waiter_name)
+                                                .attr('data-id', data.order[i].waiter_id);
 
                             displayTableData('#replenish-data');
                         }
@@ -151,13 +152,15 @@ $(function() {
 
                     // 确定结账
                     $('#checkout').click(function() {
-                        // console.log('table-number:' + $('#table-number').text());
-                        // console.log('cashier_id:' + $('#mianunit-waiter').attr('data-id'));
-                        // console.log('cashier_name:' + $('#mianunit-waiter').text());
-                        // console.log('menu_money:' + $('#j-consume-money').text());
-                        // console.log('real_money:' + $('#j-integer-money').text());
-                        // console.log('discount:' + $('#j-discount-amount option:selected').val());
-                        // var zhehouMoney = parseFloat($('#j-integer-money').text()) + parseFloat($('#j-decimal-money').text());
+                        console.log('table-number:' + $('#table-number').text());
+                        console.log('cashier_id:' + $('#mianunit-waiter').attr('data-id'));
+                        console.log('cashier_name:' + $('#mianunit-waiter').text());
+                        console.log('menu_money:' + $('#j-consume-money').text());
+                        console.log('real_money:' + $('#j-integer-money').text());
+                        console.log('discount:' + $('#j-discount-amount option:selected').val());
+                        var zhehouMoney = parseFloat($('#j-integer-money').text()) + parseFloat($('#j-decimal-money').text());
+                            value1 = parseFloat($('#j-integer-money').text());
+                            value2 = parseFloat($('#j-integer-money').text());
                         // console.log('discount_money:' + zhehouMoney);
                         // console.log('wipe_zero:' + $('#j-decimal-money').text());
                         // console.log('cash:' + $('#cash').val());
@@ -203,14 +206,16 @@ $(function() {
                             ifModified: true,
                     　　    cache: false,
                             dataType: "json",
-                            beforeSend: displayMsg(ndPromptMsg, '页面加载中', 100),
+                            beforeSend: displayMsg(ndBillProMsg, '页面加载中', false),
                             success: function(respnoseText) {
+
+                                console.log(respnoseText);
                                 if (respnoseText.status != 200) {
-                                    displayMsg(ndPromptMsg, respnoseText.description, 1000);
+                                    displayMsg(ndBillProMsg, respnoseText.description, 1000);
                                     return;
                                 } else {
-                                   displayMsg(ndPromptMsg, respnoseText.description, 200, function() {
-
+                                   displayMsg(ndBillProMsg, respnoseText.description, 200, function() {
+                                        layer.close(layerBox);
                                    });
                                 }
 
@@ -229,7 +234,7 @@ $(function() {
     function checkoutMoney() {
         if ($('#mianunit-status').text() == '已送未结') {
 
-            var mianunitData = $('#mianunit-data tr').not('tr:eq(0)');
+            var mianunitData = $('#mianunit-data tr');
 
             var Money = 0,
                 rebateMoney = 0;
