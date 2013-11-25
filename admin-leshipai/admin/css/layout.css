@@ -1,0 +1,698 @@
+/* 总体样式 */
+body {
+    background:  #FFFFFF;
+    font-family: 'SimHei';
+}
+#banner {
+    height: 100px;
+    background: url(../../images/table_top_log.png) repeat-x center top;
+}
+
+/* 内容导航区域 */
+#side {
+    float: left;
+    width: 200px;
+    padding-top: 24px;
+    color: #825543;
+    background: url(../../images/left_bg2.jpg) repeat-y;
+}
+
+#side dl {
+    margin: 0 0 0 45px;
+    cursor: pointer;
+}
+
+#side dt {
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+#side dd {
+    display: none;
+    width: 130px;
+    height: 28px;
+    padding-top: 5px;
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#side dd:hover {
+    color: #7B0F4F;
+}
+
+/* 内容显示区域 */
+#side-main {
+    margin: 5px 0;
+}
+
+#side-title {
+    color: #7B0F4F;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+#side-body {
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+/* 联系信息，菜品维护信息 */
+#contact-msg, #menu-defend-msg {
+    display: none;
+}
+
+/* 系统信息，联系信息内容 */
+#system-msg, #contact-content, .table-three, .menu-defend {
+    width: 800px;
+}
+
+#system-msg p, #contact-content p {
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+}
+
+/* 菜品维护内容 */
+#defend-message {
+    width: 1050px;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #CCCCCC;
+}
+#defend-message li {
+    float: left;
+    width: 8%;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 1px;
+    text-align: center;
+    font-size: 20px;
+    color: #810706;
+    background: #E29C00;
+    cursor: pointer;
+    -moz-border-top-left-radius: 5px;
+    -ms-border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-top-right-radius: 5px;
+    -ms-border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+#defend-message li:nth-child(10), #defend-message li:nth-child(11), #defend-message li:nth-child(12) {
+    width: 8.56%;
+}
+
+.gray {
+    background: #E5CD75;
+}
+
+/* 日期统计,收银统计 */
+#time-table, #pay-table, .table-four, .table-new-four, .table-five, .table-purview, .table-menu, #menu-table {
+    width: 1050px;
+}
+
+#time-table p {
+    width: 77px;
+    text-align: right;
+}
+
+#time-table p:nth-child(1) {
+    width: 116px;
+    text-align: left;
+}
+
+#time-table p:last-child {
+    width: 87px;
+    padding-right: 10px;
+}
+
+#pay-table p {
+    width: 12.5%;
+}
+
+#menu-table p {
+    text-align: right;
+}
+
+#menu-table p:first-child {
+    text-align: left;
+}
+
+/* 公共样式 */
+.table-container p, .table-title p, .table-content p {
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+    color: #810706;
+    background: #E29C00;
+}
+
+.table-title p {
+    color: #E29C00;
+    background: #810706;
+}
+
+.table-three, .table-new-four, .table-four, .table-five, .table-purview {
+    margin-bottom: 15px;
+}
+
+.table-three li:not(:first-child):hover, .table-four li:not(:first-child):hover,
+.table-five li:not(:first-child):hover, .table-purview li:not(:first-child):hover,
+#time-table li:not(:first-child):hover, #pay-table li:not(:first-child):hover,
+.menu-defend li:not(:first-child):hover, .table-menu-table li:not(:first-child):hover {
+    background: #E5CD75;
+}
+.table-three p, .table-four p, .table-new-four p,
+.table-five p, .table-purview p, #time-table p, #pay-table p, .table-new-table div, .table-menu-table  p {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 3px 0;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* 三列表格 */
+.table-three p {
+    width: 43.5%;
+}
+.table-three p:nth-child(3) {
+    width: 13%;
+}
+
+/* 四列表格 */
+.table-four p:nth-child(1), .table-four div:nth-child(1) {
+    width: 20%;
+}
+.table-four p:nth-child(2), .table-four div:nth-child(2) {
+    width: 10%;
+}
+.table-four p:nth-child(3), .table-four div:nth-child(3) {
+    width: 60%;
+}
+.table-four p:nth-child(4), .table-four div:nth-child(4) {
+    width: 10%;
+}
+
+.table-four div {
+    float: left;
+    margin: 3px 0;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.package-table {
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+} 
+.package-table th, .package-table td {
+    width: 150px;
+    height: 22px;
+    border-left: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    text-align: center;
+}
+
+#package-content select {
+    width: 107px;
+    margin: 3px 0;
+}
+#package-content input[type=text] {
+    width: 60px;
+    margin: 3px 0;
+}
+
+.table-new-four p {
+    width: 30%;
+}
+.table-new-four p:nth-child(4) {
+    width: 10%;
+}
+
+.table-purview div {
+    float: left;
+    margin: 3px 0;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.table-menu-table p {
+    width: 20%;
+}
+
+/* 五列表格 */
+.table-five p:nth-child(1), .table-purview div:nth-child(1), .table-purview p:nth-child(1) {
+    width: 20%;
+}
+.table-five p:nth-child(2), .table-purview div:nth-child(2), .table-purview p:nth-child(2) {
+    width: 20%;
+}
+.table-five p:nth-child(3), .table-purview div:nth-child(3), .table-purview p:nth-child(3) {
+    width: 25%;
+}
+.table-five p:nth-child(4), .table-purview div:nth-child(4), .table-purview p:nth-child(4) {
+    width: 25%;
+}
+.table-five p:nth-child(5), .table-purview div:nth-child(5), .table-purview p:nth-child(5) {
+    width: 10%;
+}
+
+/* 菜品维护 */
+.menu-defend li p {
+    float: left;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    margin: 3px 0;
+    padding-left: 10px;
+    text-align: left;
+    font-weight: bold;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.menu-defend li p:nth-child(3), .menu-defend li p:nth-child(4) {
+    width: 15%;
+}
+.menu-defend li p:last-child {
+    width: 10%;
+}
+.menu-defend li input[type=text], .menu-defend li input[type=checkbox] {
+    margin: 5px 0;
+    text-align: right;
+}
+
+/* 菜品制作 */
+.table-menu li p {
+    float: left;
+    width: 14%;
+    height: 30px;
+    line-height: 30px;
+    margin: 3px 0;
+    padding-left: 10px;
+    text-align: left;
+    font-weight: bold;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.table-menu li p:nth-child(1) {
+    width: 15%;
+}
+.table-menu li p:nth-child(2) {
+    width: 7%;
+}
+.table-menu li p:last-child {
+    width: 8%;
+}
+
+.inputWidth50 {
+    width: 55px;
+    height: 20px;
+}
+.inputWidth140 {
+    width: 140px;
+    height: 20px;
+}
+
+.table-menu li input, .table-menu li select {
+    margin: 5px 0;
+    text-align: right;
+    vertical-align: top;
+}
+.table-menu li input[type=submit] {
+    text-align: center;
+}
+
+.width100, .width50, .mac_add, .input30 {
+    height: 25px;
+    font-size: 20px;
+    text-align: left;
+}
+#shop {
+    width: 150px;
+}
+
+/* 下拉框 */
+.input_box {
+    font-size: 20px;
+}
+
+.input_box select {
+    height: 25px;
+    font-size: 16px;
+}
+
+.width100 {
+    width: 100px;
+}
+
+.width50 {
+    width: 50px;
+}
+
+/* 输入框 */
+.mac_add {
+    width: 60%;
+}
+
+.input30 {
+    width: 89px;
+}
+
+/* 按钮 */
+.button {
+    width: 70px;
+    height: 25px;
+    padding: 2px 10px;
+    background:  #890D15;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bolder;
+    text-align: center;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    opacity: 1;
+}
+.button:hover {
+    opacity: 0.9;
+}
+.btn {
+    width: 95px;
+    font-size: 20px;
+    padding: 2px 10px;
+    cursor: pointer;
+    color: white;
+    background: #890D15;
+    opacity: 1;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.btn-small {
+    padding: 2px 5px;
+    cursor: pointer;
+    color: white;
+    background: #890D15;
+    opacity: 1;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;  
+}
+.btn:hover, .btn-small:hover {
+    opacity: 0.9;
+}
+
+select {
+    font-family: 'SimHei';
+}
+
+.category {
+    background: #E5CD75;
+}
+
+/* 菜品统计 */
+.table-new-table {
+    width: 1050px;
+    margin-bottom: 15px;
+}
+
+.table-new-table div:nth-child(1) {
+    width: 24%;
+}
+.table-new-table div:nth-child(2) {
+    width: 24%;
+}
+.table-new-table div:nth-child(3) {
+    width: 21%;
+}
+.table-new-table div:nth-child(4) {
+    width: 21%;
+}
+.table-new-table div:nth-child(5) {
+    width: 10%;
+}
+
+.multiple-select {
+    border: 1px solid #ABAD83;
+    background: #FFFFFF;
+    z-index: 1000;
+}
+
+#shop-title, #discount-title {
+    position: relative;
+}
+
+#dan:focus, #discount:focus {
+    outline: none;
+}
+
+#select-list {
+    position: absolute;
+    left: 70px;
+    top: 28px;
+    display: none;
+}
+
+#discount-list {
+    position: absolute;
+    left: 110px;
+    top: 29px;
+    display: none;
+}
+
+#shop-select, #discount-select {
+    width: 170px;
+    height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#shop-select li, #discount-select li {
+    padding: 2px 0;
+    line-height: 20px;
+}
+
+#shop-select li:hover, #discount-select li:hover {
+    background: #3399FF;
+    cursor: pointer;
+}
+
+.define {
+    padding-left: 10px;
+    color: white;
+    background: #810706;
+    cursor: pointer;
+}
+
+/* 权限管理 */
+.purview-set {
+    margin-left: -20px;
+}
+
+.purview-set span {
+    display: block;
+    text-align: right;
+    margin: 2px 0;
+}
+
+.purview-set span section.left-content {
+    float: left;
+    width: 50px;
+}
+.purview-set span section.right-content {
+    float: left;
+    width: 190px;
+    border: 1px solid #8D8D8D;
+}
+
+.purview-set input[type="text"] {
+    text-align: left;
+    width: 190px;
+    height: 20px;
+    font-size: 14px;
+    border: none;
+}
+
+.purview-button {
+    margin-left: 10px 0;
+}
+
+/* 优惠方案消息 */
+#favorable-side p {
+    float: left;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 1px;
+    text-align: center;
+    font-size: 20px;
+    color: #810706;
+    background: #E29C00;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    -moz-border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+
+/* 优惠内容 */
+#discount-main, #back-main, #discount-content, #back-content {
+    display: none;
+}
+
+/* 优惠内容块 */
+.favorable-block {
+    padding-bottom: 10px;
+}
+
+.favorable-block h1 {
+    padding: 3px 0px 3px 10px;
+    font-size: 22px;
+    text-align: left;
+    background: #E29C00;
+    color: #000000;
+    background: #E8E8E8;
+}
+
+/* 优惠内容列表 */
+.favorable-list {
+    padding: 0 0 0 0px;
+}
+
+.favorable-list li {
+    margin: 3px 0;
+}
+
+.favorable-list li label {
+    display: inline;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    color: #000000;
+    line-height: 26px;
+}
+
+.favorable-list li input[type="text"] {
+    width: 152px;
+    height: 23px;
+    border: 1px solid #CCCCCC;
+    font-size: 14px;
+}
+
+.favorable-list select {
+    width: 154px;
+    height: 20px;
+}
+
+.favorable-list li span {
+    float: left;
+    width: 165px;
+    text-align: right;
+}
+
+.select-list {
+    float: left;
+    width: 152px;
+    height: 100px;
+    border: 1px solid #CCCCCC;
+    margin: 2px 10px 2px 0px;
+    text-align: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.select-list li {
+    width: 152px;
+    margin: 0;
+}
+
+.select-list li:hover {
+    background: #3399FF;
+    cursor: pointer;
+}
+
+.select {
+    background: #3399FF;
+}
+
+/* 优惠方案表格显示 */
+#favorable {
+    display: none;
+}
+
+#favorable-title, #favorable-container {
+    width: 1100px;
+}
+
+#favorable-container {
+    margin: 10px 0 0 0;
+}
+
+.favorable-table {
+    float: left;
+    width: 900px;
+    margin: 10px 10px 0 0;
+}
+
+.favorable-table tr {
+    height: 30px;
+}
+
+.favorable-table tr:hover {
+    background: #E5CD75;
+}
+
+.favorable-table th {
+    width: 100px;
+    padding: 4px 0px 4px 10px;
+    text-align: left;
+    color: #E29C00;
+    background: #810706;
+}
+.favorable-table td {
+    padding: 4px 0px 4px 10px;
+}
+
+.favorable-table td input {
+    width: 50px;
+    height: 25px;
+    border: 1px solid #CCCCCC;
+    margin: 0px 3px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background: #890D15;
+    color: #FFFFFF;
+    opacity: 1;
+    cursor: pointer;
+}
+
+#j-discount-add, #j-back-add {
+    float: left;
+    margin: 10px 10px 0 0;
+}
+
+/* layer关闭按钮 */
+.xubox_border {
+    display: none;
+}
+
+/* 针对居右的数字 */
+.num-right {
+    padding-right: 40px;
+    text-align: right;
+}

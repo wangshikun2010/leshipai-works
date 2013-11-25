@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>乐食派门店管理系统首页</title>
+    <link type="text/css" href="./static/css/reset.css" rel="stylesheet">
+    <link type="text/css" href="./static/css/public.css" rel="stylesheet">
+    <link type="text/css" href="./static/admin/css/home.css" rel="stylesheet">
+</head>
+<body style="overflow-y:hidden">
+    <div id="content">
+        <div id="form">
+            <img src="./static/images/lsplogo_gl.png"/>
+            <label for="username">
+                服务员：
+                <input type="text" id="username" name="username"/>
+            </label>
+            <label for="password">
+                密　码：
+                <input type="password" id="password" name="password"/>
+            </label>
+            <div id="landed">
+                <span id="reset-data">重　置</span>
+                <span id="submit-btn">登　陆</span>
+            </div>
+        </div>
+        <div id="footer" class="clearfix">
+            <div class="left clearfix">
+                <div id='exit-system' class="exit-system"></div>
+            </div>
+            <div class="right clearfix">
+                <div id="copyright">Copyright © 2013 乐食派餐饮管理有限公司 版权所有 版本：v1.0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示信息 -->
+    <div id="prompt-message" class="prompt-message"></div>
+
+    <!-- 弹出信息 -->
+    <div id="alert-message" class="message">
+        <h1 id="alert-title" class="title">系统提示</h1>
+        <div id="alert-content" class="container">
+        </div>
+        <div id="close-alert-message" class="close-message">
+            <div id="cancel-alert" class="close-dialog"></div>
+            <div id="definite-alert" class="definite-dialog"></div>
+        </div>
+        <div id="alert-prompt-message" class="prompt-message"></div>
+    </div>
+<script type="text/javascript" src="./static/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./static/layer/layer.min.js"></script>
+<script type="text/javascript" src="./static/js/public.js"></script>
+<script type="text/javascript" src="./static/admin/js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* 主体样式 */
+body {
+    background:  #FFFFFF;
+    font-family: 'SimHei';
+}
+
+#banner {
+    height: 100px;
+    background: url(../../images/admin_top_log.png) repeat-x center top;
+}
+
+/* main */
+#main {
+    position: relative;
+    left: 50%;
+    width: 1000px;
+    margin: 0px 0 0 -500px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* 内容导航区域 */
+#side {
+    float: left;
+    width: 200px;
+    padding-top: 24px;
+    color: #825543;
+    background: url(../../images/left_bg2.jpg) repeat-y;
+}
+
+#side dl {
+    margin: 0 0 0 45px;
+    cursor: pointer;
+}
+
+#side dt {
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+#side dd {
+    display: none;
+    width: 130px;
+    height: 28px;
+    padding-top: 5px;
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#side dd:hover {
+    color: #7B0F4F;
+}
+
+/* 内容显示区域 */
+#side-main {
+    margin: 5px 0;
+}
+
+#side-title {
+    color: #7B0F4F;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+#side-body {
+    overflow: auto;
+    padding: 10px;
+}
+
+/* 联系信息 */
+#contact-msg {
+    display: none;
+}
+
+/* 系统信息，联系信息内容 */
+#system-msg, #contact-content {
+}
+
+.menu-msg li {
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.menu-msg li p {
+    display: inline-block;
+    width: 300px;
+}
+
+/* 按钮 */
+.btn {
+    width: 110px;
+    font-size: 20px;
+    padding: 2px 10px;
+    cursor: pointer;
+    color: white;
+    background: #890D15;
+    opacity: 1;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+
+.gray {
+    background: #E5CD75;
+}
+
+#select-date {
+    font-size: 20px;
+}
+
+#select-date input[type=text] {
+    width: 150px;
+    height: 20px;
+    font-size: 18px;
+}

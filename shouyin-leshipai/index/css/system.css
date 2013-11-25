@@ -1,0 +1,50 @@
+body {
+    background: #890D15;    
+}
+#form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 450px;
+    height: 450px;
+    margin: -255px 0 0 -225px;
+}
+#form img {
+    margin-bottom: 15px;
+}
+#content {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+#system-select li {
+    float: left;
+    width: 80px;
+    height: 100px;
+    border: none;
+    margin: 84px 27px 0 61px;
+    padding: 5px 20px;
+    background: #E39D01;
+    color: #7C0324;
+    font-weight: 800;
+    font-family:'SimHei';
+    font-size: 32px;
+    cursor: pointer;
+    overflow: hidden;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+#system-select li:hover {
+    background: #FEE101;
+}
+
+#system-select li p {
+    display: block;
+    margin: 10px 0;
+}
+
+#system-select li a {
+    text-decoration: none;
+    color: #7C0324;
+}

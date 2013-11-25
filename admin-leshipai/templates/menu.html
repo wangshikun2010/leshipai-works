@@ -1,0 +1,41 @@
+<form name="form" method="post">
+    <div class="table-new-table clearfix">
+        <div><label class="input_box">
+            开始时间：<input type="text" name="beginTime" id="beginTime" class="width100"/> <img onClick="WdatePicker({el:$dp.$('beginTime'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle"/>
+        </label></div>
+        <div><label class="input_box">
+            结束时间：<input type="text" id="endTime" name="endTime" class="width100"/> <img onClick="WdatePicker({el:$dp.$('endTime'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle"/>
+        </label></div>
+        <div id="shop-title">
+            <label class="input_box">
+                店铺：<input type="text" id="dan" class="width100">
+            </label>
+            <dd id="select-list" class="multiple-select">
+                <ul id="shop-select">
+                <{foreach from=$shopArr item=shop}>
+                    <li data-value="<{$shop.description}>" data-selected="1"><{$shop.value}></li>
+                <{/foreach}>
+                </ul>
+                <p id="define" class="define">确定</p>
+            </dd>
+        </div>
+        <div><label class="input_box">
+            排序：<select id="sel" class="width100">
+                <{foreach from=$selArr item=sel}>
+                    <option value="<{$sel[0]}>"><{$sel[1]}></option>
+                <{/foreach}>
+                </select>
+            </label>
+        </div>
+        <div><input type="button" value="查询" class="btn" id="j-menu-find"></div>
+    </div>
+    <ul class="table-menu-table" id="menu-table">
+        <li class="table-container clearfix">
+            <p>分类/菜品</p>
+            <p class="num-right">数量</p>
+            <p class="num-right">金额</p>
+            <p class="num-right">折扣</p>
+            <p class="num-right">实收</p>
+        </li>
+    </ul>
+</form>

@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>总部管理系统</title>
+    <link type="text/css" href="./static/css/reset.css" rel="stylesheet">
+    <link type="text/css" href="./static/css/public.css" rel="stylesheet">
+    <link type="text/css" href="./static/admin/css/layout.css" rel="stylesheet"/>
+</head>
+<body style="overflow-y:hidden;">
+    <div id="banner"></div>
+    <div id="main" class="clearfix">
+        <div id="side">
+            <dl>
+                <dt id='side_tools'>系统工具</dt>
+                <{foreach from=$system key=id item=name}>
+                    <{if $name eq '系统信息'}>
+                        <dd id='side-tools-system'>系统信息</dd>
+                    <{elseif $name eq '权限管理'}>
+                        <dd id='side-tools-purview'>权限管理</dd>
+					<{elseif $name eq '优惠管理'}>
+                        <dd id='side-tools-favorable'>优惠管理</dd>
+                    <{/if}>
+                <{/foreach}>
+                <dd id='side-tools-admin'>联系管理</dd>
+            </dl>
+            <{if $menu|@count neq 0}>
+            <dl>
+                <dt id="menu_manage">菜品管理</dt>
+                <{foreach from=$menu key=id item=name}>
+                    <{if $name eq '菜品维护'}>
+                        <dd id='side-menu-defend'>菜品维护</dd>
+                    <{elseif $name eq '菜品制作'}>
+                        <dd id='side-menu-make'>菜品制作</dd>
+                    <{elseif $name eq '特殊要求'}>
+                        <dd id='side-special'>特殊要求</dd>
+                    <{elseif $name eq '套餐维护'}>
+                        <dd id='side-package'>套餐维护</dd>
+                    <{/if}>
+                <{/foreach}>
+            </dl>
+            <{/if}>
+            <{if $count|@count neq 0}>
+            <dl>
+                <dt id="side_count">数据统计</dt>
+                <{foreach from=$count key=id item=name}>
+                    <{if $name eq '按日期统计'}>
+                        <dd id='side-date-count'>按日期统计</dd>
+                    <{elseif $name eq '按菜品统计'}>
+                        <dd id='side-menu-count'>按菜品统计</dd>
+                    <{elseif $name eq '按收银统计'}>
+                        <dd id='side-pay-count'>按收银统计</dd>
+                    <{/if}>
+                <{/foreach}>
+            </dl>
+            <{/if}>
+        </div>
+        <div id="side-main">
+            <div id="side-title">
+                <img src="./static/images/left_jian.png">
+                <span id='side-name'></span>
+            </div>
+            <div id="side-body">
+            </div>
+        </div>
+    </div>
+    <div id="menu-defend-msg">
+        <ul id="defend-message" class="clearfix">
+            <{foreach from=$cate_menu key=id item=name}>
+            <li id='side_menu_<{$id}>'><{$name}></li>
+            <{/foreach}>
+        </ul>
+        <div id="defend-panel"></div>
+    </div>
+
+    <!-- 优惠信息 -->
+    <div id="favorable">
+        <div id="favorable-side" class="clearfix">
+            <p id="favorable-discount">折扣方案</p>
+            <p id="favorable-back">返赠方案</p>
+        </div>
+        <div id="favorable-title"></div>
+        <div id="favorable-container"></div>
+    </div>
+
+    <!-- 折扣内容 -->
+    <div id="discount-main">
+        <div class="favorable-edit clearfix">
+            <table id="discount-table" class="favorable-table" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>名称</th>
+                    <th>开始日期</th>
+                    <th>结束日期</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>管理</th>
+                </tr>
+            </table>
+            <input type="button" value="添加折扣" id="j-discount-add" class="btn">
+        </div>
+    </div>
+
+    <!-- 返赠内容 -->
+    <div id="back-main">
+        <div class="favorable-edit clearfix">
+            <table id="back-table" class="favorable-table" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>名称</th>
+                    <th>开始日期</th>
+                    <th>结束日期</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>管理</th>
+                </tr>
+            </table>
+            <input type="button" value="添加返赠" id="j-back-add" class="btn">
+        </div>
+    </div>
+
+    <!-- 折扣列表 -->
+    <div id="discount-content">
+        <div class="favorable-block">
+            <h1>有效范围</h1>
+            <ul class="favorable-list">
+                <li>
+                    <label><span>方案名称：</span><input type="text" id="discount-name"></label>
+                </li>
+                <li>
+                    <div class="clearfix">
+                        <span>参与店铺：</span>
+                        <ul class="select-list" id="set-discount-shop">
+                            <li data-select="0" data-key="all">全部</li>
+                        </ul>
+                        <ul class="select-list" id="show-discount-shop">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <label><span>开始日期：</span><input type="text" id="discount-start-date"></label>
+                    <img onclick="WdatePicker({el:$dp.$('discount-start-date'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+                <li>
+                    <label><span>结束日期：</span><input type="text" id="discount-end-date"></label>
+                    <img onclick="WdatePicker({el:$dp.$('discount-end-date'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+                <li>
+                    <label><span>开始时间：</span><input type="text" id="discount-start-time"></label>
+                    <img onclick="WdatePicker({el:$dp.$('discount-start-time'),dateFmt:'HH:mm:ss',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+                <li>
+                    <label><span>结束时间：</span><input type="text" id="discount-end-time"></label>
+                    <img onclick="WdatePicker({el:$dp.$('discount-end-time'),dateFmt:'HH:mm:ss',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+                <li>
+                    <div class="clearfix">
+                        <span>并存折扣方案：</span>
+                        <ul class="select-list" id="set-discount-zhekou">
+                            <li data-select="0" data-key="all">全部</li>
+                        </ul>
+                        <ul class="select-list" id="show-discount-zhekou">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="clearfix">
+                        <span>并存返赠方案：</span>
+                        <ul class="select-list" id="set-discount-back">
+                            <li data-select="0" data-key="all">全部</li>
+                        </ul>
+                        <ul class="select-list" id="show-discount-back">
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="favorable-block">
+            <h1>折扣方案</h1>
+            <ul class="favorable-list">
+                <li>
+                    <div class="clearfix">
+                        <span>折扣分类：</span>
+                        <ul class="select-list" id="set-discount-class">
+                        </ul>
+                        <ul class="select-list" id="show-discount-class">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="clearfix">
+                        <span>折扣菜品：</span>
+                        <ul class="select-list" id="set-discount-menu">
+                        </ul>
+                        <ul class="select-list" id="show-discount-menu">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <label><span>折扣额度：</span><input type="text" value="0" id="discount-value"></label>
+                </li>
+                <li>
+                    <div class="clearfix">
+                        <span>折扣商品结算方式：</span>
+                        <select name="" id="discount-checkout">
+                            <option value="1">允许用抵用券</option>
+                            <option value="2">不允许用抵用券</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <span>是否需要特殊授权：</span>
+                    <select id="discount-authorize">
+                        <option value="1">需要</option>
+                        <option value="2">不需要</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="favorable-block">
+            <h1>其他设置</h1>
+            <ul class="favorable-list">
+                <li>
+                    <span>执行方式：</span>
+                    <select id="discount-run">
+                        <option value="1">自动</option>
+                        <option value="2">手动</option>
+                    </select>
+                </li>
+                <li>
+                    <span>执行状态：</span>
+                    <select id="discount-status">
+                        <option value="1">正常</option>
+                        <option value="2">停用</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <input type="button" value="添 加" id="add-discount" class="btn">
+        <input type="button" value="保 存" id="save-discount" class="btn">
+    </div>
+
+     <!-- 返赠列表 -->
+    <div id="back-content">
+        <div class="favorable-block">
+            <h1>有效范围</h1>
+            <ul class="favorable-list">
+                <li>
+                    <label><span>方案名称：</span><input type="text" id="back-name"></label>
+                </li>
+                <li>
+                    <div class="clearfix">
+                        <span>参与店铺：</span>
+                        <ul class="select-list" id="set-back-shop">
+                            <li data-select="0" data-key="all">全部</li>
+                        </ul>
+                        <ul class="select-list" id="show-back-shop">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <label><span>开始日期：</span><input type="text" id="back-start-date"></label>
+                    <img onclick="WdatePicker({el:$dp.$('back-start-date'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+                <li>
+                    <label><span>结束日期：</span><input type="text" id="back-end-date"></label>
+                    <img onclick="WdatePicker({el:$dp.$('back-end-date'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+                <li>
+                    <label><span>开始时间：</span><input type="text" id="back-start-time"></label>
+                    <img onclick="WdatePicker({el:$dp.$('back-start-time'),dateFmt:'HH:mm:ss',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+                <li>
+                    <label><span>结束时间：</span><input type="text" id="back-end-time"></label>
+                    <img onclick="WdatePicker({el:$dp.$('back-end-time'),dateFmt:'HH:mm:ss',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle">
+                </li>
+            </ul>
+        </div>
+        <div class="favorable-block">
+            <h1>返赠方案</h1>
+            <ul class="favorable-list">
+                <li>
+                    <div class="clearfix">
+                        <span>返赠菜品：</span>
+                        <ul class="select-list" id="set-back-menu">
+                        </ul>
+                        <ul class="select-list" id="show-back-menu">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <label><span>返赠数量：</span><input type="text" value="0" id="back-value"></label>
+                </li>
+                <li>
+                    <label><span>返赠最低消费额：</span><input type="text" value="0" id="back-min-value"></label>
+                </li>
+                <li>
+                    <span>是否累计：</span>
+                    <select name="" id="back-addup">
+                        <option value="1">累计</option>
+                        <option value="2">不累计</option>
+                    </select>
+                </li>
+                <li>
+                    <span>是否需要特殊授权：</span>
+                    <select id="back-authorize">
+                        <option value="1">需要</option>
+                        <option value="2">不需要</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="favorable-block">
+            <h1>其他设置</h1>
+            <ul class="favorable-list">
+                <li>
+                    <span>执行方式：</span>
+                    <select name="" id="back-run">
+                        <option value="1">自动</option>
+                        <option value="2">手动</option>
+                    </select>
+                </li>
+                <li>
+                    <span>执行状态：</span>
+                    <select name="" id="back-status">
+                        <option value="1">正常</option>
+                        <option value="2">停用</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <input type="button" value="添 加" id="add-back" class="btn">
+        <input type="button" value="保 存" id="save-back" class="btn">
+    </div>
+
+    <!-- 联系管理 -->
+    <div id="contact-msg">
+        <div id="contact-content">
+            <p>如果出现无法使用的异常状况，请联系IT部维修解决。</p>
+            <p>IT主管：王建刚</p>
+            <p>联系电话：13146137128</p>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div id="footer" class="clearfix">
+        <div class="left clearfix">
+            <div id='exit-system'></div>
+        </div>
+        <div class="right clearfix">
+            <div id="copyright">Copyright © 2013 版权所有 版本：v1.0</div>
+        </div>
+    </div>
+
+    <!-- 提示信息 -->
+    <div id="prompt-message" class="prompt-message"></div>
+
+    <!-- 弹出信息 -->
+    <div id="alert-message" class="message">
+        <h1 id="alert-title" class="title">系统提示</h1>
+        <div id="alert-content" class="container">
+        </div>
+        <div id="close-alert-message" class="close-message">
+            <div id="cancel-alert" class="close-dialog"></div>
+            <div id="definite-alert" class="definite-dialog"></div>
+        </div>
+        <div id="alert-prompt-message" class="prompt-message"></div>
+    </div>
+<script type="text/javascript" src="./static/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./static/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="./static/layer/layer.min.js"></script>
+<script type="text/javascript" src="./static/js/public.js"></script>
+<script type="text/javascript" src="./static/admin/js/jquery.nav.js"></script>
+</body>
+</html>

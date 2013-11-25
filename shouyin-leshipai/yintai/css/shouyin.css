@@ -1,0 +1,528 @@
+@charset "UTF-8";
+
+#banner {
+    position: relative;
+    height: 100px;
+    background: url(../../images/table_top_log.png) center top;
+}
+
+#banner ul {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    color: #DDC700;
+    margin: 10px -15px 0 0px;
+}
+
+#banner li {
+    float: left;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-family: 'Microsoft Yahei';
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#banner li p {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    margin: -3px -3px -3px 10px;
+ }
+
+.icon-green, .icon-yellow, .icon-red, .icon-blue, .icon-purple {
+    width: 17px;
+    height: 17px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    background: red;
+}
+
+.icon-green { background: #31CC00;}
+.icon-yellow { background: #FF9900;}
+.icon-red { background: #FF0000;}
+.icon-blue { background: #006CB7;}
+.icon-purple { background: #920583;}
+
+#refersh {
+    width: 100px;
+    height: 70px;
+    border: 1px solid #CCCCCC;
+    background: blue;
+    font-size: 30px;
+    line-height: 70px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 用户列表 */
+#user-list {
+    height: 100%;
+    margin: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#table ul li {
+    float: left;
+    margin: 3px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #34CB00;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    opacity: 1;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#table ul li:hover {
+   opacity: 0.8;
+}
+
+/* 交班对账 */
+#bill-message {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    height: 610px;
+    margin: -305px 0 0 -300px;
+}
+
+#bill-content {
+    height: 500px;
+    padding: 0;
+    font-family: 'Microsoft Yahei';
+    overflow-y: auto;
+}
+
+.container .person-message {
+    background: #EDEDED;
+}
+
+.container .person-message li {
+    padding: 3px 0;
+    font-size: 18px;
+    color: #740611;
+    font-weight: bold;
+}
+
+.container .operate-message li {
+    padding: 2px 0;
+}
+
+.operate-message {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #DD8A08;
+}
+
+.operate-message .big-size {
+    font-size: 16px;
+    color: #740611;
+    font-weight: 500;
+}
+
+.operate-message li span, .person-message li span {
+    float: left;
+    width: 300px;
+    text-align: right;
+}
+
+.operate-message li div, .person-message li div {
+    text-align: left;
+}
+
+.print-bill {
+    background: url(../../images/rijie_zhongda.png) no-repeat;
+}
+
+.print-bill:hover, .print-bill:active {
+    background: url(../../images/rijie_zhongda2.png) no-repeat;
+}
+
+/* 日结清机 */
+#clear-message {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    display: none;
+    width: 600px;
+    height: 610px;
+    margin: -305px 0 0 -300px;
+}
+
+#clear-content {
+    padding: 0;
+    height: 500px;
+    font-family: 'Microsoft Yahei';
+    overflow-y: auto;
+}
+
+/* 账单详情 */
+#bill-detailed {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    display: none;
+    width: 800px;
+    margin: 0px 0 0 -400px;
+}
+
+#detailed-content {
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* 主单，补单 */
+#bill-detailed table tr {
+    height: 30px;
+}
+
+#bill-detailed table th {
+    width: 100px;
+    background: #EDEDED;
+    font-size: 16px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#bill-detailed table td {
+    width: 100px;
+    background: white;
+    font-size: 16px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#bill-detailed th.dishes {
+    width: 400px;
+    text-align: center;
+}
+
+#bill-detailed td.dishes {
+    width: 390px;
+    text-align: left;
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+.dishes span {
+    display: none;
+}
+
+/* 主单补单 */
+.menulist-title {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 18px;
+    font-family:'SimHei';
+}
+
+.menulist-title p {
+    float: left;
+}
+
+.menulist-title .number {
+    width: 270px;
+    margin-left: 10px;
+}
+
+.menulist-title .order-amount {
+    width: 150px;
+}
+
+.menulist-title .waiter {
+    width: 70px;
+}
+
+.menulist-title .status {
+    float: right;
+    margin-right: 10px;
+}
+
+.menulist-data {
+    padding-bottom: 30px;
+}
+
+.red {
+    background: #810706;
+    color: #FBE101;
+}
+
+.red-font {
+    color: #8D131C;
+}
+
+.yellow {
+    background: #E29C00;
+    color: #810706;
+}
+
+.gray {
+    background: #999999;
+    color: white;
+}
+
+.gray-font {
+    color: #999999;
+}
+
+/* 结账信息 */
+#detailed-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 800px;
+    height: 260px;
+    padding: 10px 0;
+    border-top: 1px solid #CCCCCC;
+    background: #810706;
+}
+
+/* 结账可选择列表 */
+.select-list {
+    float: left;
+    width: 170px;
+    height: 100px;
+    border: 2px solid #E29C00;
+    margin: 2px 5px 5px 10px;
+    text-align: left;
+    font-size: 18px;
+    color: #810706;
+    background: #FFFFFF;
+}
+
+.button-list {
+    float: left;
+}
+
+.button-list input[type="button"] {
+    margin: 15px 0;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.button-list input[type="button"]:hover {
+    opacity: 1;
+}
+
+.table, .checkout, .checkout-money {
+  /*  float: left;
+    color: #FBE101;
+    font-size: 17px;
+    text-align: left;*/
+}
+
+.table, .table-checkout, .checkout-money {
+    float: left;
+    color: #FBE101;
+    font-size: 17px;
+    text-align: left;   
+}
+
+.table {
+    width: 240px;
+    margin: 3px 0 0 10px;
+}
+
+.table-checkout {
+    width: 386px;
+    margin: 3px 6px 0 10px;
+}
+
+.checkout-money {
+    width: 140px;
+}
+
+#table-number {
+    float: left;
+    font-size: 26px;
+    font-weight: bolder;
+    margin-left: 8px;
+}
+
+#table-payid, #table-num {
+    float: left;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#table-payid {
+    float: right;
+    margin: 10px 10px 0 0;
+}
+
+#j-discount-amount {
+    margin-left: -10px;
+}
+
+/*.table-checkout {
+    width: 400px;
+    margin: 3px 0 0 10px;
+}*/
+
+.checkout {
+    float: left;
+    width: 191px;
+    border: 2px solid #E29C00;
+    border-top: none;
+    padding: 8px 0 5px 0;
+}
+
+#checkout-left {
+    border-right: none;
+}
+
+#checkout-right {
+    border-left: none;
+}
+
+.table .table-number {
+    height: 20px;
+    padding: 7px;
+    text-align: left;
+    font-size: 22px;
+    color: #810706;
+    background: #E29C00;
+    font-family:'SimHei';
+}
+
+.table-checkout .table-number {
+    height: 20px;
+    padding: 7px;
+    text-align: left;
+    font-size: 22px;
+    color: #810706;
+    background: #E29C00;
+    font-family:'SimHei';
+}
+
+#table-message {
+    border: 2px solid #E29C00;
+    border-top: none;
+    padding: 10px;
+    background: white;
+}
+
+#table-message p span {
+    display: inline-block;
+    text-align: right;
+    width: 94px;
+}
+
+.table p {
+    height: 23px;
+    line-height: 25px;
+    font-weight: 600;
+    font-family:'SimHei';
+    background: white;
+    color: #810706;
+    padding-left: 4px;
+}
+
+.checkout label {
+    display: block;
+    height: 20px;
+    line-height: 15px;
+    margin: 4px 0 4px 10px;
+    font-weight: 600;
+    font-family:'SimHei';
+}
+
+.checkout label input {
+    width: 70px;
+    height: 20px;
+    text-align: right;
+    color: #8D131C;
+    margin-right: 3px;
+    border: 1px solid #BCBCBC;
+    font-weight: bold;
+}
+
+#zhaolin {
+    display: inline-block;
+    width: 73px;
+    margin-right: 3px;
+    border-bottom: 2px solid #E29C00;
+    text-align: right;
+    font-family:'SimHei';
+}
+
+/*#checkout-message {
+    border: 2px solid #E29C00;
+    border-top: none;
+    padding: 10px;
+    background: white;
+}*/
+
+#j-histoty-money {
+    padding: 14px 15px 0 0;
+    font-size: 14px;
+    text-align: right;
+}
+
+#cancel-checkout {
+    width: 141px;
+    height: 56px;
+    margin: 2px 0;
+    background: url(../../images/quxiao.png) no-repeat;
+    cursor: pointer;
+}
+
+#cancel-checkout:hover, #cancel-checkout:active {
+    background: url(../../images/quxiao2.png) no-repeat;
+}
+
+#checkout {
+    width: 141px;
+    height: 96px;
+    margin: 2px 0;
+    background: url(../../images/jiezhang.png) no-repeat;
+    cursor: pointer;
+}
+
+#checkout:hover, #checkout:active {
+    background: url(../../images/jiezhang2.png) no-repeat;
+}
+
+#already-checkout {
+    display: none;
+    width: 141px;
+    height: 96px;
+    margin: 4px 0;
+    background: url(../../images/yijie.png) no-repeat;
+    cursor: pointer;
+}
+
+#already-checkout:hover, #already-checkout:active {
+    background: url(../../images/yijie1.png) no-repeat;
+}
+
+#shouquan-title {
+    display: none;
+    margin: -10px 0 -13px 45px;
+    text-align: left;
+    color: #B08652;
+    font-size: 20px
+}
+
+/* 输入框禁用样式 */
+.disabled {
+    background: #999999;
+}
+
+

@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/* footer */
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: url(../images/foot.png) repeat-x;
+}
+
+#footer .left {
+    float: left;
+}
+
+#footer .right {
+    float: right;
+}
+
+#footer .right div, #footer .left div {
+    float: left;
+    width: 100px;
+    height: 40px;
+    margin: 22px 10px;
+    cursor: pointer;
+}
+
+#exit-system {
+    background: url('../images/lo_tuichu.png') no-repeat;
+}
+
+#exit-system:hover, #exit-system:active {
+    background: url('../images/lo_tuichu2.png') no-repeat;
+}
+
+#modify-password {
+    background: url('../images/lo_xg.png') no-repeat;
+}
+
+#modify-password:hover, #modify-password:active {
+    background: url('../images/lo_xg2.png') no-repeat;
+}
+
+#footer #copyright {
+    float: right;
+    width: 300px;
+    margin: 35px 0px 0 0;
+    font-size: 14px;
+    color: #DDC700;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Microsoft Yahei';
+}
+
+/* 提示消息 */
+.prompt-message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    height: 50px;
+    margin: -25px 0 0 -300px;
+    background: #3B0304;
+    opacity: 0.7;
+    text-align: center;
+    color: #DDC700;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 50px;
+    display: none;
+}
+
+/* 弹出框公用样式 */
+.message {
+    display: none;
+    width: 600px;
+    margin: 30px 0 0 -300px;
+    border: 3px solid #240101;
+    text-align: center;
+    font-size: 22px;
+}
+
+.message .title {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 0 0 20px;
+    background: url('../images/dialog_bottom.png');
+    color: #FBDF00;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: left;
+    font-family:'SimHei';
+}
+
+.message .container {
+    background: white;
+    padding: 20px;
+}
+
+.message .container label {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px 0;
+    color: #B08652;
+}
+
+.message .container label input {
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    border: 1px solid #D6C6B9;
+}
+
+.message .close-message {
+    height: 60px;
+    background: url('../images/dialog_bottom.png');
+}
+
+.close-message div {
+    float: left;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 100px;
+    cursor: pointer;
+}
+
+.close-dialog {
+    background: url('../images/dialog_qx.png') no-repeat;
+}
+
+.close-dialog:hover, .close-dialog:active {
+    background: url('../images/dialog_qx2.png') no-repeat;
+}
+
+.definite-dialog {
+    background: url('../images/dialog_qd.png') no-repeat;
+}
+
+.definite-dialog:hover, .definite-dialog:active {
+    background: url('../images/dialog_qd2.png') no-repeat;
+}
+
+/* 修改密码弹出消息 */
+#midify-message {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    height: 410px;
+    margin: -205px 0 0 -300px;
+}
+
+/* 弹出消息 */
+#alert-message {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    height: 270px;
+    margin: -135px 0 0 -300px;
+}
+
+#alert-content {
+    height: 120px;
+    color: #C39670;
+    text-align: left;
+}

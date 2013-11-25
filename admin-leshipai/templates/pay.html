@@ -1,0 +1,54 @@
+<form name="form" method="post">
+    <div class="table-new-table clearfix">
+        <div><label class="input_box">
+            开始日期：<input type="text" name="beginTime" id="beginTime" class="width100"/> <img onClick="WdatePicker({el:$dp.$('beginTime'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle"/>
+        </label></div>
+        <div><label class="input_box">
+            结束日期：<input type="text" id="endTime" name="endTime" class="width100"/> <img onClick="WdatePicker({el:$dp.$('endTime'),startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true,lang:'zh-cn'})" src="./static/DatePicker/skin/datePicker.gif" align="absmiddle"/>
+        </label></div>
+        <div id="shop-title">
+            <label class="input_box">
+                店铺：<input type="text" id="dan" class="width100">
+            </label>
+            <dd id="select-list" class="multiple-select">
+                <ul id="shop-select">
+                <{foreach from=$shopArr item=shop}>
+                    <li data-value="<{$shop.description}>" data-selected="1"><{$shop.value}></li>
+                <{/foreach}>
+                </ul>
+                <p id="define" class="define">确定</p>
+            </dd>
+        </div>
+        <div id="discount-title">
+            <label class="input_box">
+                优惠方案：<input type="text" id="discount" class="width100">
+            </label>
+            <dd id="discount-list" class="multiple-select">
+                <ul id="discount-select">
+                    <li data-value="all">全部</li>
+                <{foreach from=$saleAllz item=shop}>
+                    <li data-value="<{$shop.id}>" data-selected="1"><{$shop.sale_name}></li>
+                <{/foreach}>
+                <{foreach from=$saleAllf item=shop}>
+                    <li data-value="<{$shop.id}>" data-selected="1"><{$shop.sale_name}></li>
+                <{/foreach}>
+                </ul>
+                <p id="define-discount" class="define">确定</p>
+            </dd>
+        </div>
+        <div><input type="button" value="查询" class="btn" id="j-pay-find"></div>
+    </div>
+  
+    <ul id="pay-table">
+        <li class="table-container clearfix">
+            <p>日期</p>
+            <p>店铺名称</p>
+            <p>结账单号</p>
+            <p>消费金额</p>
+            <p>折扣金额</p>
+            <p>抹零金额</p>
+            <p>实收金额</p>
+            <p>收银员</p>
+        </li>
+    </ul>
+</form>

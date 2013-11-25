@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>收银系统</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link type="text/css" href="./static/css/reset.css" rel="stylesheet">
+    <link type="text/css" href="./static/css/public.css" rel="stylesheet">
+    <link type="text/css" href="./static/yintai/css/shouyin.css" rel="stylesheet">
+</head>
+<body style="overflow-y:hidden">
+    <div id="banner">
+        <ul class="clearfix">
+            <li><p class="icon-green"></p><p>空台</p></li>
+            <li><p class="icon-red"></p><p>已送</p></li>
+            <li><p class="icon-blue"></p><p>已结</p></li>
+            <li><p class="icon-purple"></p><p>外卖</p></li>
+        </ul>
+    </div>
+    <div id="user-list" class="coolscrollbar">
+         <div id="table">
+            <ul class="clearfix">
+            </ul>
+         </div>
+    </div>
+
+    <div id="footer" class="clearfix">
+        <div class="left clearfix">
+            <div id='exit-system' class="exit-system"></div>
+        </div>
+   
+        <div class="right clearfix">
+            <div id='open-money-box'></div>
+            <div id='handover'></div>
+            <div id='cleaner'></div>
+        </div>
+    </div>
+
+    <!-- 提示信息 -->
+    <div id="prompt-message" class="prompt-message"></div>
+
+    <!-- 弹出消息 -->
+    <div id="alert-message" class="message">
+        <h1 id="alert-title" class="title">系统提示</h1>
+        <div id="alert-content" class="container"></div>
+        <div id="close-alert-message" class="close-message">
+            <div id="cancel-alert" class="close-dialog"></div>
+            <div id="definite-alert" class="definite-dialog"></div>
+        </div>
+        <div id="alert-prompt-message" class="prompt-message"></div>
+    </div>
+
+    <!-- 员工登陆弹出框 -->
+    <div id="logoin-message" class="message">
+        <h1 id="logoin-title" class="title">日结清机</h1>
+
+        <div id="logoin-content" class="container">
+            <p id="shouquan-title">所选优惠或折扣方案需要店长特殊授权</p>
+            <label for="logo-name">
+                服务员：
+                <input type="text" id="logo-name" name="username"/>
+            </label>
+            <label for="logo-password">
+                密　码：
+                <input type="password" id="logo-password" name="password"/>
+            </label>
+        </div>
+        <div id="logoin-footer" class="close-message clearfix">
+            <div id="cancel-logoin" class="close-dialog"></div>
+            <div id="definite-logoin" class="definite-dialog"></div>
+        </div>
+        <div id="logoin-prompt-message" class="prompt-message"></div>
+    </div>
+
+    <!-- 交班对账 -->
+    <div id="bill-message" class="message">
+        <h1 id="bill-title" class="title">交班对账</h1>
+        <div id="bill-content" class="container">
+            <ul class="person-message">
+               <li class="clearfix"><span>员工编号：</span><div id="jb-waiter-id"></div></li>
+               <li class="clearfix"><span>员工姓名：</span><div id="jb-waiter-name"></div></li>
+               <li class="clearfix"><span>开始时间：</span><div id="jb-start-time"></div></li>
+               <li class="clearfix"><span>结束时间：</span><div id="jb-end-time"></div></li>
+            </ul>
+            <ul class="operate-message">
+                <li class="big-size clearfix">
+                    <span>总单数：</span><div id="jb-total-singular"></div>
+                </li>
+                <li class="clearfix">
+                    <span>主单数：</span><div id="jb-mian-singular"></div>
+                </li>
+                <li class="clearfix">
+                    <span>追单数：</span><div id="jb-add-singular"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总人数：</span><div id="jb-total-person"></div>
+                </li>
+                <li class="clearfix">
+                    <span>人均消费：</span><div id="jb-person-money"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总金额：</span><div id="jb-total-amount"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总优惠金额：</span><div id="jb-youhui-money"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>折扣金额：</span><div id="jb-discount-amount"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>抹零：</span><div id="jb-moling"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总实收金额：</span><div id="jb-receive-amount"></div>
+                </li>
+                <li class="clearfix">
+                    <span>现金：</span><div id="jb-cash"></div>
+                </li>
+                <li class="clearfix">
+                    <span>银行卡：</span><div id="jb-cerd"></div>
+                </li>
+                <li class="clearfix">
+                    <span>乐币：</span><div id="jb-member"></div>
+                </li>
+                <li class="clearfix">
+                    <span>其他卡：</span><div id="jb-other"></div>
+                </li>
+                <li class="clearfix">
+                    <span>贵宾券：</span><div id="jb-vip-ticket"></div>
+                </li>
+                <li class="clearfix">
+                    <span>抵用券：</span><div id="jb-arrived"></div>
+                </li>
+                <li class="clearfix">
+                    <span>团购券：</span><div id="jb-tuan"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>券找零：</span><div id="jb-odd-vouchers"></div>
+                </li>
+                <li class="big-size clearfix" id="jb-back-menu">
+                    <span>总返赠菜品：</span><div id="jb-back-menu-count"></div>
+                </li>
+            </ul>
+        </div>
+        <div id="bill-footer" class="close-message clearfix">
+            <div id="print-bill" class="print-bill"></div>
+            <div id="cancel-bill" class="definite-dialog"></div>
+        </div>
+        <div id="jiaoban-prompt-message" class="prompt-message"></div>
+    </div>
+
+    <!-- 日结清机 -->
+    <div id="clear-message" class="message">
+        <h1 class="title">日结清机</h1>
+        <div id="clear-content" class="container">
+           <ul class="person-message">
+               <li class="clearfix"><span>员工编号：</span><div id="qj-person-id"></div></li>
+               <li class="clearfix"><span>员工姓名：</span><div id="qj-person-name"></div></li>
+               <li class="clearfix"><span>开始账单：</span><div id="qj-start-time"></div></li>
+               <li class="clearfix"><span>结束账单：</span><div id="qj-end-time"></div></li>
+           </ul>
+           <ul class="operate-message">
+                <li class="big-size clearfix">
+                    <span>总单数：</span><div id="qj-total-singular"></div>
+                </li>
+                <li class="clearfix">
+                    <span>主单数：</span><div id="qj-mian-singular"></div>
+                </li>
+                <li class="clearfix">
+                    <span>追单数：</span><div id="qj-add-singular"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总人数：</span><div id="qj-total-person"></div>
+                </li>
+                <li class="clearfix">
+                    <span>人均消费：</span><div id="qj-person-money"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>每桌人数：</span><div id="qj-person-count"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>每桌菜数：</span><div id="qj-dish-count"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>每桌金额：</span><div id="qj-table-money"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总金额：</span><div id="qj-total-amount"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总优惠金额：</span><div id="qj-youhui-money"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>折扣金额：</span><div id="qj-discount-amount"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>抹零：</span><div id="qj-moling"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>总实收金额：</span><div id="qj-receive-amount"></div>
+                </li>
+                <li class="clearfix">
+                    <span>现金：</span><div id="qj-cash"></div>
+                </li>
+                <li class="clearfix">
+                    <span>银行卡：</span><div id="qj-cerd"></div>
+                </li>
+                <li class="clearfix">
+                    <span>乐币：</span><div id="qj-member"></div>
+                </li>
+                <li class="clearfix">
+                    <span>其他卡：</span><div id="qj-other"></div>
+                </li>
+                <li class="clearfix">
+                    <span>贵宾券：</span><div id="qj-vip-ticket"></div>
+                </li>
+                <li class="clearfix">
+                    <span>抵用券：</span><div id="qj-arrived"></div>
+                </li>
+                <li class="clearfix">
+                    <span>团购券：</span><div id="qj-tuan"></div>
+                </li>
+                <li class="big-size clearfix">
+                    <span>券找零：</span><div id="qj-odd-vouchers"></div>
+                </li>
+                <li class="big-size clearfix" id="qj-back-menu">
+                    <span>总返赠菜品：</span><div id="qj-back-menu-count"></div>
+                </li>
+           </ul>
+        </div>
+        <div id="clear-footer" class="close-message clearfix">
+            <div id="print-clear" class="print-bill"></div>
+            <div id="cancel-clear" class="definite-dialog"></div>
+        </div>
+        <div id="clear-prompt-message" class="prompt-message"></div>
+    </div>
+
+    <!-- 账单详情 -->
+    <div id="bill-detailed" class="message">
+        <h1 id="detailed-title" class="title">账单详情</h1>
+        <div id="detailed-content" class="container">
+            <div id="menulist">
+                <ul>
+                </ul>
+            </div>
+        </div>
+
+        <div id="detailed-footer" class="clearfix">
+            <div class="clearfix">
+                <select id="set-discount" class="select-list" size="5">
+                </select>
+                <div class="button-list">
+                    <input type="button" value=">>" id="discount-right"><br/>
+                    <input type="button" value="<<" id="discount-left">
+                </div>
+                <select id="show-discount" class="select-list" size="5">
+                </select>
+                <select id="set-back" class="select-list" size="5">
+                </select>
+                <div class="button-list">
+                    <input type="button" value=">>" id="back-right"><br/>
+                    <input type="button" value="<<" id="back-left">
+                </div>
+                <select id="show-back" class="select-list" size="5">
+                </select>
+            </div>
+            <div class="clearfix">
+                <div class="table">
+                    <h1 class="table-number clearfix">
+                        <span id="table-number"></span>
+                        <span id="table-num"> 号桌</span>
+                        <span id="table-payid"></span>
+                    </h1>
+                    <div id="table-message">
+                        <p class="">消费金额：<span id="j-consume-money"></span>元</p>
+                        <p class="">折扣金额：<span id="j-discount-money"></span>元</p>
+                        <p>抹零金额：<span id="j-decimal-money"></span>元</p>
+                        <p id="border-bottom">实收金额：<span id="j-integer-money"></span>元</p>
+                    </div>
+                </div>
+
+                <div class="table-checkout">
+                    <h1 class="table-number clearfix" id="j-histoty-money"></h1>
+                    <div class="checkout" id="checkout-left">
+                        <label>
+                            现　金：<input type="text" id="cash">元
+                        </label>
+                        <label>
+                            银行卡：<input type="text" id="cerd">元
+                        </label>
+                        <label>
+                            乐　币：<input type="text" id="member">元
+                        </label>
+                        <label>
+                            其他卡：<input type="text" id="other">元
+                        </label>
+                    </div>
+                    <div class="checkout" id="checkout-right">
+                        <label>
+                            贵宾券：<input type="text" id="vip">元
+                        </label>
+                        <label>
+                            抵用券：<input type="text" id="vouchers">元
+                        </label>
+                        <label>
+                            团购券：<input type="text" id="tuangou">元
+                        </label>
+                        <label>
+                            找　零：<span id="zhaolin">0</span>元
+                        </label>
+                    </div>
+                </div>
+
+                <div class="checkout-money">
+                    <p id="cancel-checkout"></p>
+                    <p id="checkout"></p>
+                    <p id="already-checkout"></p>
+                </div>
+            </div>
+        </div>
+        <div id="bill-prompt-message" class="prompt-message"></div>
+    </div>
+<script type="text/javascript" src="./static/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./static/layer/layer.min.js"></script>
+<script type="text/javascript" src="./static/js/public.js"></script>
+<script type="text/javascript" src="./static/yintai/js/shouyin.js"></script>
+</body>
+</html>
